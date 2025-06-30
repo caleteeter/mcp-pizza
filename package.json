@@ -1,0 +1,28 @@
+{
+  "name": "stdio",
+  "version": "1.0.0",
+  "description": "Basic MCP server using stdio",
+  "main": "index.js",
+  "type": "module",
+  "bin": {
+    "pizza": "./build/index.js"
+  },
+  "scripts": {
+    "build": "tsc -p ./ && chmod 755 ./build/index.js"
+  },
+  "author": {
+    "name": "Cale Teeter",
+    "email": "caleteeter@hotmail.com"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.13.2",
+    "uuid": "^11.1.0",
+    "zod": "^3.25.67"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.6",
+    "@types/uuid": "^10.0.0",
+    "typescript": "^5.8.3"
+  }
+}
