@@ -8,7 +8,10 @@
     "pizza": "./build/index.js"
   },
   "scripts": {
-    "build": "tsc -p ./ && chmod 755 ./build/index.js"
+    "build": "tsc -p ./",
+    "zip": "npm install && rm -rf build/ && npm run build && rm -f build.zip && cp package.json build/ && cd build/ && zip -r ../build.zip .",
+    "deploy": "npm run zip && az webapp deployment source config-zip --resource-group rgctdemo --name ctdemo --src build.zip",
+    "start": "npm install && node index.js"
   },
   "author": {
     "name": "Cale Teeter",
@@ -17,10 +20,12 @@
   "license": "MIT",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.13.2",
+    "express": "^5.1.0",
     "uuid": "^11.1.0",
     "zod": "^3.25.67"
   },
   "devDependencies": {
+    "@types/express": "^5.0.3",
     "@types/node": "^24.0.6",
     "@types/uuid": "^10.0.0",
     "typescript": "^5.8.3"
